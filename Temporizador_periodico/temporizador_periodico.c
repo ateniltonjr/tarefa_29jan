@@ -9,9 +9,9 @@
 #include "pico/stdlib.h"     // Inclui a biblioteca padrão para funcionalidades básicas como GPIO, temporização e comunicação serial.
 #include "hardware/timer.h" // Inclui a biblioteca para gerenciamento de temporizadores de hardware.
 
-#define green 11    // Definindo o led verde no pino 11 (vermelho da bitDogLab)
+#define green 13    // Definindo o led verde no pino 11
 #define yellow 12  // Definindo o led amarelo no pino 12 (azul da bitDogLab)
-#define red 13    //Definindo o led vermelho no pino 13 (Verde da BitDogLab)
+#define red 11    //Definindo o led vermelho no pino 13
 
 int estado_atual = 1;      // Definindo o estado atual igual ao case 1
 int estado_semaforo = 1;  // Estado da mensagem exibida no semaf
@@ -37,13 +37,13 @@ void state(bool r, bool y, bool g) {
 void verifica_estado() {
   switch(estado_atual) {
     case 1:
-        state(0, 0, 1); // verde
+        state(1, 0, 0); // vermelho
         break;
     case 2:
         state(0, 1, 0); // amarelo
         break;
     case 3:
-        state(1, 0, 0); // vermelho
+        state(0, 0, 1); // verde
         break;
   }}
 
